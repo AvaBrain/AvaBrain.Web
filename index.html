@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AvaBrain - Crypto Intelligence Platform</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+    <style>
+        :root {
+            --avax-red: #E84142;
+            --text-gray: #4B5563;
+            --dark-blue: #1a1b35;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: #FFFFFF;
+            color: #1F2937;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(to bottom, var(--dark-blue), #2d2e4a);
+            color: white;
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 2rem;
+            background: radial-gradient(circle at center, var(--avax-red), var(--dark-blue));
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: var(--avax-red);
+            margin-bottom: 1rem;
+        }
+
+        .header p {
+            font-size: 1.25rem;
+            color: #FFFFFF;
+            margin-bottom: 2rem;
+        }
+
+        /* Twitter Showcase Section */
+        .twitter-showcase {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .showcase-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .tweet-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .tweet-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .tweet-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tweet-type {
+            color: var(--avax-red);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .tweet-description {
+            color: var(--text-gray);
+        }
+
+        /* Feature Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .feature-card {
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            color: var(--avax-red);
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--avax-red);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #d63031;
+        }
+
+        .tweet-examples {
+            padding: 4rem 0;
+            background: var(--dark-blue);
+            color: white;
+        }
+
+        /* Example Grid Improvements */
+.examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin: 2rem auto;
+    max-width: 1400px;
+    padding: 0 1rem;
+}
+
+/* Example Card Improvements */
+.example-card {
+    background: #ffffff;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+}
+
+.example-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Image Container Improvements */
+.example-image {
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-bottom: 1px solid #eee;
+}
+
+/* Content Improvements */
+.example-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.example-type {
+    color: var(--avax-red);
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.example-description {
+    color: var(--text-gray);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .examples-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    
+    .example-image {
+        height: 200px;
+    }
+}
+
+        /* Footer Styles */
+        .footer {
+            background: var(--dark-blue);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--avax-red);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--avax-red);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-links i {
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover i {
+            color: var(--avax-red);
+        }
+
+        .coming-soon {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center;
+            min-width: 300px;
+            animation: popupFade 0.3s ease-in-out;
+        }
+
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            animation: overlayFade 0.3s ease-in-out;
+        }
+
+        .popup h3 {
+            color: var(--avax-red);
+            margin-bottom: 1rem;
+        }
+
+        .popup p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .popup-close {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: var(--avax-red);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .popup-close:hover {
+            background-color: #d63031;
+        }
+
+        @keyframes popupFade {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        @keyframes overlayFade {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Add toast notification style */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--dark-blue);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: none;
+            z-index: 1001;
+            animation: toastSlide 0.3s ease-in-out;
+        }
+
+        @keyframes toastSlide {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <img src="avabrain.png" alt="AvaBrain Logo" class="logo">
+        <h1>AvaBrain</h1>
+        <p>Advanced Crypto Intelligence Powered by Avalanche</p>
+        <a href="https://x.com/AvaBrain21" target="_blank" class="btn">
+            Follow Updates
+            <i data-feather="external-link"></i>
+        </a>
+    </header>
+
+    <section class="twitter-showcase">
+        <div class="container">
+            <div class="showcase-title">
+                <h2>AI-Powered Twitter Engagement</h2>
+                <p>Experience intelligent crypto conversations</p>
+            </div>
+
+            <div class="tweet-types">
+                <div class="tweet-card">
+                    <div class="tweet-type">📰 News Posts</div>
+                    <p class="tweet-description">Real-time crypto news analysis and summaries from trusted sources</p>
+                </div>
+
+                <div class="tweet-card">
+                    <div class="tweet-type">📊 Market Analysis</div>
+                    <p class="tweet-description">Deep dive into market trends and technical analysis</p>
+                </div>
+
+                <div class="tweet-card">
+                    <div class="tweet-type">🎯 Smart Replies</div>
+                    <p class="tweet-description">Contextual responses to user queries about crypto markets</p>
+                </div>
+
+                <div class="tweet-card">
+                    <div class="tweet-type">📈 Sentiment Analysis</div>
+                    <p class="tweet-description">Real-time market sentiment tracking and analysis</p>
+                </div>
+
+                <div class="tweet-card">
+                    <div class="tweet-type">💹 Trend Detection</div>
+                    <p class="tweet-description">Early identification of emerging market trends</p>
+                </div>
+
+                <div class="tweet-card">
+                    <div class="tweet-type">🔍 Coin Information</div>
+                    <p class="tweet-description">Detailed cryptocurrency metrics and information</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tweet-examples">
+        <div class="container">
+            <h2 class="showcase-title">Experience AvaBrain in Action</h2>
+            <div class="examples-grid">
+                <div class="example-card">
+                    <img src="media/avax-price-reply.png" alt="News Analysis Example" class="example-image">
+                    <div class="example-content">
+                        <div class="example-type">News Analysis</div>
+                        <p class="example-description">Get unparalleled insights as AvaBrain decodes the latest crypto news, empowering you to make informed decisions with AI precision.</p>
+                    </div>
+                </div>
+    
+                <div class="example-card">
+                    <img src="media/coin-reply.png" alt="Coin Analysis Reply" class="example-image">
+                    <div class="example-content">
+                        <div class="example-type">Coin Analysis Reply</div>
+                        <p class="example-description">Unlock key data on your favorite coins with tailored AI-generated analysis designed for actionable insights.</p>
+                    </div>
+                </div>
+    
+                <div class="example-card">
+                    <img src="media/trend-reply.png" alt="Trend Analysis Reply" class="example-image">
+                    <div class="example-content">
+                        <div class="example-type">Trend Analysis Reply</div>
+                        <p class="example-description">Stay ahead of the curve with AvaBrain’s trend detection, helping you capitalize on emerging market opportunities.</p>
+                    </div>
+                </div>
+    
+                <div class="example-card">
+                    <img src="media/avalanche-analysis.png" alt="Technical Analysis Example" class="example-image">
+                    <div class="example-content">
+                        <div class="example-type">Technical Analysis</div>
+                        <p class="example-description">Deep-dive into trading charts and patterns as AvaBrain simplifies complex technical data into actionable strategies.</p>
+                    </div>
+                </div>
+    
+                <div class="example-card">
+                    <img src="media/avalanche-normal-post.png" alt="Daily Comments Example" class="example-image">
+                    <div class="example-content">
+                        <div class="example-type">Daily Comments</div>
+                        <p class="example-description">Access real-time market sentiment and engage with up-to-the-minute crypto discussions through AvaBrain’s intelligent updates.</p>
+                    </div>
+                </div>
+    
+                <div class="example-card">
+                    <img src="media/ct-post.png" alt="Market Trends Example" class="example-image">
+                    <div class="example-content">
+                        <div class="example-type">Market Trends</div>
+                        <p class="example-description">Discover potential opportunities with AvaBrain’s cutting-edge trend analysis and market foresight.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About AvaBrain</h3>
+                    <ul>
+                        <li><a href="#" class="coming-soon">Our Technology</a></li>
+                        <li><a href="#" class="coming-soon">How It Works</a></li>
+                        <li><a href="#" class="coming-soon">Team</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#" class="coming-soon">Documentation</a></li>
+                        <li><a href="#" class="coming-soon">API Reference</a></li>
+                        <li><a href="#" class="coming-soon">Community</a></li>
+                        <li><a href="#" class="coming-soon">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="https://x.com/AvaBrain21" target="_blank" class="coming-soon">Twitter</a></li>
+                        <li><a href="#" class="coming-soon">Discord</a></li>
+                        <li><a href="#" class="coming-soon">Telegram</a></li>
+                        <li><a href="https://github.com/AvaBrain" class="coming-soon">GitHub</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Data & Insights</h3>
+                    <ul>
+                        <li><a href="#" class="coming-soon">User Statistics</a></li>
+                        <li><a href="#" class="coming-soon">Performance Reports</a></li>
+                        <li><a href="#" class="coming-soon">System Uptime</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 AvaBrain. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="popup-overlay"></div>
+    <div class="popup">
+        <h3>Coming Soon!</h3>
+        <p>This feature is currently under development. Stay tuned for updates!</p>
+        <button class="popup-close">Close</button>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast">Feature coming soon!</div>
+
+    <script>
+
+        const popupOverlay = document.querySelector('.popup-overlay');
+        const popup = document.querySelector('.popup');
+        const closeButton = document.querySelector('.popup-close');
+        const comingSoonLinks = document.querySelectorAll('.coming-soon');
+
+        function showPopup() {
+            popupOverlay.style.display = 'block';
+            popup.style.display = 'block';
+        }
+
+        function hidePopup() {
+            popupOverlay.style.display = 'none';
+            popup.style.display = 'none';
+        }
+
+        comingSoonLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent the link from navigating
+                showPopup();
+            });
+        });
+
+        closeButton.addEventListener('click', hidePopup);
+
+        popupOverlay.addEventListener('click', hidePopup);
+
+
+        // Initialize Feather Icons
+        feather.replace();
+
+
+
+        // Add hover animation to cards
+        document.querySelectorAll('.tweet-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+
+</html>
